@@ -1,0 +1,32 @@
+{
+"records": 
+{
+    "college": "Sheridan College",
+  "students": [
+    {
+		"name" : "Harpriya Kaur",
+		"age" : 21,
+		"gender" : "Female",
+		"program" : "Computer Programmer",
+		"coop" : true,
+		"emails" : ["kaur1238@sheridancollege.ca","harpriyakaur00@gmail.com","harpriya23@hotmail.com"]
+	},
+    {
+      "name": "Jane Bing",
+      "age": 21,
+      "gender": "Female",
+      "program": "Computer Programmer",
+      "coop": true,
+      "emails": [ "jane@sheridancollege.ca", "jane@gmail.com", "jane@hotmail.com" ]
+    },
+    {
+      "name": "Bob Frost",
+      "age": 24,
+      "gender": "Male",
+      "program": "Systems Analyst",
+      "coop": false,
+      "emails": [ "bob@sheridancollege.ca", "bob@gmail.com" ]
+    }
+  ]
+}
+}

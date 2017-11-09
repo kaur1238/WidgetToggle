@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- 
+Student Name: Harpriya Kaur
+-->
+<html>
+    <head>
+        <title>SYST24444</title>
+        <meta charset="UTF-8">
+       	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+
+        <script>
+            $(document).on('pagecreate', function(e) {
+               $.getJSON("ass03.json", function (data) {
+                        var row="";
+                        $("#college").html(data.records.college);
+			$.each(data.records.students, function( key, value ) {
+                            var email = value.emails.toString();
+                            row +="<tr>";
+                            row += "<td>" + value.name +"</td>";
+                            row += "<td>" + value.age + "</td>";
+                            row += "<td>" + value.gender + "</td>";
+                            row += "<td>" + value.program + "</td>";
+                            if(value.coop == false){
+                               row += "<td>No</td>";
+                            }
+                            else
+                            {
+                               row += "<td>Yes</td>";
+                            }       
+                            row += "<td>" + email.replace(/[,_]/g,"</br>") + "</td>";
+                            row +="</tr>";                    
+			});
+                        if (row.length > 1) {
+                            $("#records").find("tbody").append(row);
+                        }
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <div data-role="page" id="home">
+            <div data-role="content" id="content">
+                <div id="collapsible" data-role="collapsible" data-collapsed="false" >
+                    <h4 id="college" class="ui-btn ui-icon-plus ui-btn-icon-left">College</h4>
+                    <table id="records" data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+                    <thead>
+                        <tr>
+                            <th data-priority="persist">Name</th>
+                            <th data-priority="1">Age</th>
+                            <th data-priority="2">Gender</th>
+                            <th data-priority="3">Program</th>
+                            <th data-priority="4">Coop</th>
+                            <th data-priority="5">Email(s)</th>
+                        </tr>
+                     </thead>
+                    <tbody>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+    </body>
+</html>
+
